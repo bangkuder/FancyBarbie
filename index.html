@@ -1,0 +1,641 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>BARBIE LIVE INDONESIA - SURABAYA</title>
+<link rel="stylesheet" href="style.css" type="text/css" media="screen, projection" />
+<link href='http://fonts.googleapis.com/css?family=Oswald:700' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>		
+<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="source/jquery.fancybox.js?v=2.1.5"></script>
+<link rel="stylesheet" type="text/css" href="source/jquery.fancybox.css?v=2.1.5" media="screen" />
+
+
+	   
+<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+			 *  Simple image gallery. Uses default settings
+			 */
+
+			$('.fancybox').fancybox();
+
+			/*
+			 *  Different effects
+			 */
+
+			// Change title type, overlay closing speed
+			$(".fancybox-effects-a").fancybox({
+				helpers: {
+					title : {
+						type : 'outside'
+					},
+					overlay : {
+						speedOut : 0
+					}
+				}
+			});
+
+			// Disable opening and closing animations, change title type
+			$(".fancybox-effects-b").fancybox({
+				openEffect  : 'none',
+				closeEffect	: 'none',
+
+				helpers : {
+					title : {
+						type : 'over'
+					}
+				}
+			});
+
+			// Set custom style, close if clicked, change title type and overlay color
+			$(".fancybox-effects-c").fancybox({
+				wrapCSS    : 'fancybox-custom',
+				closeClick : true,
+
+				openEffect : 'none',
+
+				helpers : {
+					title : {
+						type : 'inside'
+					},
+					overlay : {
+						css : {
+							'background' : 'rgba(238,238,238,0.85)'
+						}
+					}
+				}
+			});
+
+			// Remove padding, set opening and closing animations, close if clicked and disable overlay
+			$(".fancybox-effects-d").fancybox({
+				padding: 0,
+
+				openEffect : 'elastic',
+				openSpeed  : 150,
+
+				closeEffect : 'elastic',
+				closeSpeed  : 150,
+
+				closeClick : true,
+
+				helpers : {
+					overlay : null
+				}
+			});
+
+			/*
+			 *  Button helper. Disable animations, hide close button, change title type and content
+			 */
+
+			$('.fancybox-buttons').fancybox({
+				openEffect  : 'none',
+				closeEffect : 'none',
+
+				prevEffect : 'none',
+				nextEffect : 'none',
+
+				closeBtn  : false,
+
+				helpers : {
+					title : {
+						type : 'inside'
+					},
+					buttons	: {}
+				},
+
+				afterLoad : function() {
+					this.title = 'Image ' + (this.index + 1) + ' of ' + this.group.length + (this.title ? ' - ' + this.title : '');
+				}
+			});
+
+
+			/*
+			 *  Thumbnail helper. Disable animations, hide close button, arrows and slide to next gallery item if clicked
+			 */
+
+			$('.fancybox-thumbs').fancybox({
+				prevEffect : 'none',
+				nextEffect : 'none',
+
+				closeBtn  : false,
+				arrows    : false,
+				nextClick : true,
+
+				helpers : {
+					thumbs : {
+						width  : 50,
+						height : 50
+					}
+				}
+			});
+
+			/*
+			 *  Media helper. Group items, disable animations, hide arrows, enable media and button helpers.
+			*/
+			$('.fancybox-media')
+				.attr('rel', 'media-gallery')
+				.fancybox({
+					openEffect : 'none',
+					closeEffect : 'none',
+					prevEffect : 'none',
+					nextEffect : 'none',
+
+					arrows : false,
+					helpers : {
+						media : {},
+						buttons : {}
+					}
+				});
+
+			/*
+			 *  Open manually
+			 */
+
+			$("#fancybox-manual-a").click(function() {
+				$.fancybox.open('1_b.jpg');
+			});
+
+			$("#fancybox-manual-b").click(function() {
+				$.fancybox.open({
+					href : 'iframe.html',
+					type : 'iframe',
+					padding : 5
+				});
+			});
+
+			$("#fancybox-manual-c").click(function() {
+				$.fancybox.open([
+					{
+						href : '1_b.jpg',
+						title : 'My title'
+					}, {
+						href : '2_b.jpg',
+						title : '2nd title'
+					}, {
+						href : '3_b.jpg'
+					}
+				], {
+					helpers : {
+						thumbs : {
+							width: 75,
+							height: 50
+						}
+					}
+				});
+			});
+
+
+		});
+	</script>
+
+<script>
+$(function() {
+ 
+    // grab the initial top offset of the navigation 
+    var sticky_navigation_offset_top = $('#menu').offset().top;
+     
+    // our function that decides weather the navigation bar should have "fixed" css position or not.
+    var sticky_navigation = function(){
+        var scroll_top = $(window).scrollTop(); // our current vertical position from the top
+         
+        // if we've scrolled more than the navigation, change its position to fixed to stick to top,
+        // otherwise change it back to relative
+       if (scroll_top > sticky_navigation_offset_top) { 
+            $('#menu').css({ 'position': 'fixed', 'bottom':0, });
+		  $('#menu ul').css({ 'padding-bottom': '0' });
+        } else {
+            $('#menu').css({ 'position': 'relative' }); 
+	     $('#menu ul').css({ 'padding-bottom': '15px' });
+        }   
+    };
+     
+    // run our function on load
+    sticky_navigation();
+     
+    // and run it again every time you scroll
+    $(window).scroll(function() {
+         sticky_navigation();
+    });
+ 
+});
+
+</script>
+
+ <script type="text/javascript">
+$(document).ready(function () {
+                $('#menu li a').bind('click',function(event){
+                    var $anchor = $(this);
+                    
+                    $('html, body').stop().animate({
+                        scrollTop: $($anchor.attr('href')).offset().top
+                    }, 1500,'easeInOutExpo');
+                    /*
+                    if you don't want to use the easing effects:
+                    $('html, body').stop().animate({
+                        scrollTop: $($anchor.attr('href')).offset().top
+                    }, 1000);
+                    */
+                    event.preventDefault();
+                });
+            });
+			
+			
+			$(document).ready(function () {
+				$('#english ').hide();
+                $('a#indo-but').bind('click',function(event){
+                    $('#english').hide();
+					$('#indonesia ').show();
+                    });
+                    
+					$('a#english-but').bind('click',function(event){
+                    $('#english').show();
+					$('#indonesia').hide();
+                    });
+              });
+			  $(document).ready(function () {
+				$('#tata-english ').hide();
+                $('a#tata-indo-but').bind('click',function(event){
+                    $('#tata-english ').hide();
+					$('#tata-indo ').show();
+                    });
+                    
+					$('a#tata-english-but').bind('click',function(event){
+                    $('#tata-english ').show();
+					$('#tata-indo ').hide();
+                    });
+              });
+            
+ </script>
+ <meta name="description" content=" BARBIE LIVE INDONESIA - SURABAYA"/>
+ <meta name="keywords" content=" BARBIE LIVE INDONESIA - SURABAYA, barbie live indonesia, barbie live, barbie live surabaya"/>
+</head>
+
+<body>
+<div id="wrapper">
+    <div id="header"><img src="images/header.jpg"  />
+	
+<div id="menu">
+    <ul>
+    	<li> <a href="#header"> HOME </a> </li>
+        <li> <a href="#layout"> VENUE </a> </li>  
+        <li> <a href="#ticket"> TICKET </a> </li>    
+        <li> <a href="#videos"> VIDEOS </a> </li>        
+        <li> <a href="#contact"> CONTACT </a> </li>
+    </ul>
+    </div>
+
+	</div>
+  	
+    <div id="layout">
+    <h2> SEAT ARRANGEMENT </h2>
+	<br />
+    <img src="images/sby-seat.jpg"  />
+    
+    </div>
+    
+   
+     
+    <div id="ticket">
+    <h2> TICKET </h2>
+    <div class="left price">
+    <img src="images/surabaya.jpg"  />    
+    </div>
+    <div class="right tc">
+     <a href='#show' class="menu-tc fancybox"><h2> SHOW TIME</h2></a>
+    <a href='#terms' class="menu-tc fancybox"><h2> TERM & CONDITION</h2></a>
+     <a href='#tata' class="menu-tc fancybox"><img src="images/tiket.png" /></a>
+
+    <!--a href='http://dyandratiket.com/signup.php' target="_blank" class="menu-tc"><h2> GET YOUR TICKET </h2></a-->
+    </div>
+    </div>
+    <div class="clear"></div>
+    
+    <div id="videos">
+    <h2> VIDEOS </h2>
+    <div class="vid">
+    	<iframe width="640" height="480" src="//www.youtube.com/embed/OH8RxdugmtA" frameborder="0" allowfullscreen></iframe>
+    </div>
+    </div>
+   
+    <div id="contact">
+    <h2> CONTACT </h2>
+    <br />
+    <span class="anounce"> HOTLINE : 021-71796214 or EMAIL : support@dyandratiket.com	</span>
+    <br />
+    <br />
+    <br />
+    <br />
+    <div >
+	<h2> PROMOTED BY </h2>
+    <div class="spon">
+    	<ul>
+        <li >
+  			<a href="#"  ><img src="images/promotor.jpg"  /></a>
+    	</li>	
+        	
+    	
+    	</ul>
+    </div>
+
+    <h2> PRODUCED BY </h2>
+    <div class="spon">
+    	<ul>
+        <li >
+  			<a href="#"  ><img src="images/producer.jpg"  /></a>
+    	</li>	
+        	
+    	
+    	</ul>
+    </div>
+    </div>
+    <!--div class="right">
+    
+    <h2> SPONSORED BY </h2>
+    	<div class="spon">	
+    		</div>
+    </div-->
+    </div>
+    
+<div id="mandiri" style="display: none;">
+	<img src="images/tata-cara.jpg" />
+</div>
+   
+<div id="terms" style="display: none;">
+	<span class="switch"><a id="indo-but" href="#indonesia"> indonesia </a> || <a id="english-but" href="#english"> english </a></span>
+	<div id="indonesia">
+    <h2>TICKETING FAQ (ONLINE)</h2>
+        <br />	
+       <img src="images/1.jpg" />
+	<img src="images/2.jpg" />
+    </div>
+    
+    
+	
+
+</div>
+
+<div id="tata">
+
+<p><img src="images/logo.png" width="453" height="79" /></p>
+<p>untuk Meningkatkan pelayanan kami terhadap Customer Adira finance, kami mohon kesediaannya untuk mengisi survey di bawah ini.</p>
+<table width="671" border="0">
+  <tr>
+    <td width="198">No. Kontrak / PK</td>
+    <td width="7"> : </td>
+    <td width="159"><form id="form2" name="form2" method="post" action="">
+      <label for="pk"></label>
+      <input type="text" name="pk" id="pk" />
+    </form></td>
+    <td width="90">&nbsp;</td>
+    <td width="10">&nbsp;</td>
+    <td width="181">&nbsp;</td>
+  </tr>
+  <tr>
+    <td>Nama Nasabah  </td>
+    <td>:</td>
+    <td>
+      <input type="text" name="nama" id="nama" />
+    </td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>Usia </td>
+    <td>:</td>
+    <td>
+<select name="usia">
+<option value="< 20 thn">< 20 Tahun</option>
+<option value="20 - 30 thn">20 - 30 Tahun</option>
+<option value="31 - 40 thn">31 - 40 Tahun</option>
+<option value="41 - 50 thn">41 - 50 Tahun</option>
+<option value="51 - 60 thn">51 - 60 Tahun</option>
+<option value=">60 thn">>60 Tahun</option>
+</select>
+</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>No. Telp </td>
+    <td>:</td>
+    <td>
+      <input type="text" name="telp" id="telp" />
+    </td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>email </td>
+    <td>:</td>
+    <td><input type="text" name="email" id="email" /></td>
+    <td>Jenis kelamin</td>
+    <td>:</td>
+    <td><select name="JK">
+<option value="Pria">Pria</option>
+<option value="Wanita">Wanita</option>
+</select></td>
+  </tr>
+  <tr>
+    <td>Jenis Kendaraan saat ini di Adira finance</td>
+    <td>:</td>
+    <td>
+      <input type="checkbox" name="jenis_pembiayaan" value="Mobil"id="checkbox" />
+    Mobil
+      <input type="checkbox" name="jenis_pembiayaan" value="Motor"id="checkbox" />
+    Motor
+    </td>
+    <td>Kota Domisili</td>
+    <td>&nbsp;</td>
+    <td><select name="domisili">
+<option value="Aceh">Aceh</option>
+<option value="Sumatera Utara">Sumatera Utara</option>
+<option value="Sumatera Barat">Sumatera Barat</option>
+<option value="Riau">Riau</option>
+<option value="Jambi">Jambi</option>
+<option value="Sumatera Selatan">Sumatera Selatan</option>
+<option value="Bengkulu">Bengkulu</option>
+<option value="Lampung">Lampung</option>
+<option value="Bangka Belitung">Bangka Belitung</option>
+<option value="Kep. Riau">Kep. Riau</option>
+<option value="DKI Jakarta">DKI Jakarta</option>
+<option value="Yogyakarta">Yogyakarta</option>
+<option value="Jawa Barat">Jawa Barat</option>
+<option value="Jawa Tengah">Jawa Tengah</option>
+<option value="Jawa Timur">Jawa Timur</option>
+<option value="Banten">Banten</option>
+<option value="Bali">Bali</option>
+<option value="Nusa Tenggara Timur">Nusa Tenggara Timur</option>
+<option value="Nusa Tenggara Barat">Nusa Tenggara Barat</option>
+<option value="Kalimantan Barat">Kalimantan Barat</option>
+<option value="Kalimantan Tengah">Kalimantan Tengah</option>
+<option value="Kalimantan Selatan">Kalimantan Selatan</option>
+<option value="Kalimantan Timur">Kalimantan Timur</option>
+<option value="Kalimantan Utara">Kalimantan Utara</option>
+<option value="Sulawesi Utara">Sulawesi Utara</option>
+<option value="Sulawesi Tengah">Sulawesi Tengah</option>
+<option value="Sulawesi Selatan">Sulawesi Selatan</option>
+<option value="Sulawesi Tenggara">Sulawesi Tenggara</option>
+<option value="Sulawesi Barat">Sulawesi Barat</option>
+<option value="Gorontalo">Gorontalo</option>
+<option value="Maluku">Maluku</option>
+<option value="Maluku Utara">Maluku Utara</option>
+<option value="Papua">Papua</option>
+<option value="Papua Barat">Papua Barat</option>
+</select></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+<p align="center"><strong>SURVEY KEPUASAN NASABAH ADIRA FINANCE</strong></p>
+<p>Petunjuk Pengisian: isilah pertanyaan no. 1-3 dengan memilih skor 1-5 sesuai dengan tingkat kepuasan Customer; skor 1 (sangat tidak puas) hingga skor 5 (sangat puas). untuk pertanyaan no.4 diisi dengan memberikan masukan/harapan terhadap pelayanan Adira Finance.</p>
+<table width="681" border="0">
+  <tr>
+    <td width="16" height="33">&nbsp;</td>
+    <td width="373">&nbsp;</td>
+    <td width="59">Sangat Tidak Puas</td>
+    <td width="53">Tidak Puas</td>
+    <td width="52">Biasa</td>
+    <td width="45">Puas/ingin</td>
+    <td width="53">sangat Puas/ingin</td>
+  </tr>
+  <tr>
+    <td>1.</td>
+    <td>Secara Keseluruhan bagaimana tingkat kepuasan Anda terhadap layanan Adira Finance?</td>
+    <td><form id="form7" name="form7" method="post" action="">
+      <input type="radio" name="radio" id="poin" value="poin" />
+      <label for="poin"></label>
+    </form></td>
+    <td><input type="radio" name="radio" id="poin" value="poin" /></td>
+    <td><input type="radio" name="radio" id="poin" value="poin" /></td>
+    <td><input type="radio" name="radio" id="poin" value="poin" /></td>
+    <td><input type="radio" name="radio" id="poin" value="poin" /></td>
+  </tr>
+  <tr>
+    <td>2.</td>
+    <td>Seberapa inginkah Anda untuk tetap bekerja sama/ mengambil program kredit di Adira Finance? </td>
+    <td><input type="radio" name="radio" id="poin" value="poin" /></td>
+    <td><input type="radio" name="radio" id="poin" value="poin" /></td>
+    <td><input type="radio" name="radio" id="poin" value="poin" /></td>
+    <td><input type="radio" name="radio" id="poin" value="poin" /></td>
+    <td><input type="radio" name="radio" id="poin" value="poin" /></td>
+  </tr>
+  <tr>
+    <td>3.</td>
+    <td>Seberapa inginkah Anda untuk merekomendasikan Adira Finance kepada Saudara atau kerabat?</td>
+    <td><input type="radio" name="radio" id="poin" value="poin" /></td>
+    <td><input type="radio" name="radio" id="poin" value="poin" /></td>
+    <td><input type="radio" name="radio" id="poin" value="poin" /></td>
+    <td><input type="radio" name="radio" id="poin" value="poin" /></td>
+    <td><input type="radio" name="radio" id="poin" value="poin" /></td>
+  </tr>
+  <tr>
+    <td>4.</td>
+    <td colspan="6">Menurut Anda hal-hal apa saja yang perlu ditingkatkan agar produk dan layanan Adira Finance dapat berjalan optimal dan memenuhi harapan anda?</td>
+    </tr>
+  <tr>
+    <td>a.</td>
+    <td><form id="form1" name="form1" method="post" action="">
+      <label for="pertanyaan1"></label>
+      <textarea name="pertanyaan1" id="pertanyaan1" cols="45" rows="5"></textarea>
+    </form></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>b.</td>
+    <td><form id="form3" name="form3" method="post" action="">
+      <label for="pertanyaan2"></label>
+      <input type="text" name="pertanyaan2" id="pertanyaan2" />
+    </form></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>c.</td>
+    <td><form id="form4" name="form4" method="post" action="">
+      <label for="pertanyaan3"></label>
+      <input type="text" name="pertanyaan3" id="pertanyaan3" />
+    </form></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>d.</td>
+    <td><form id="form5" name="form5" method="post" action="">
+      <label for="pertanyaan4"></label>
+      <input type="text" name="pertanyaan4" id="pertanyaan4" />
+    </form></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>e.</td>
+    <td><form id="form6" name="form6" method="post" action="">
+      <label for="pertanyaan5"></label>
+      <input type="text" name="pertanyaan5" id="pertanyaan5" />
+    </form></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+<p>Terima Kasih atas kesediaan Anda memberikan saran dan masukan untuk PT. Adira Dinamika Multi Finance, Tbk. Semoga kedepannya kami senantiasa dapat memenuhi harapan dan kebutuhan Anda.</p>
+<p>&nbsp;</p>
+
+
+
+<div id="show">
+</div>
+
+    <div id="vid-1" style="display: none;">
+    <iframe width="600" height="338" src="//www.youtube.com/embed/XWQ2xCdmxOw" frameborder="0" allowfullscreen></iframe>
+  </div>
+    
+    <div id="vid-2" style="display: none;">
+    <iframe width="600" height="338" src="//www.youtube.com/embed/YSjeZvEBENo" frameborder="0" allowfullscreen></iframe>
+    </div>
+    
+    <div id="vid-3" style="display: none;">
+    <iframe width="600" height="338" src="//www.youtube.com/embed/XWQ2xCdmxOw" frameborder="0" allowfullscreen></iframe>
+    </div>
+    
+    <div id="vid-4" style="display: none;">
+    <iframe width="600" height="338" src="//www.youtube.com/embed/6ex1YkDXelo" frameborder="0" allowfullscreen></iframe>
+    </div>
+    
+    <div id="vid-5" style="display: none;">
+    <iframe width="600" height="338" src="//www.youtube.com/embed/EXZxc8GSXnI" frameborder="0" allowfullscreen></iframe>
+    </div>
+    
+    <div id="vid-6" style="display: none;">
+    <iframe width="600" height="338" src="//www.youtube.com/embed/kKAnYWNnYW8" frameborder="0" allowfullscreen></iframe>
+    </div>
+    
+    
+</div>
+</body>
+</html>
